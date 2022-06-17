@@ -1,0 +1,60 @@
+
+from fileinput import close
+import math
+from operator import truediv
+math
+
+loop=True
+while loop==True:
+    account_choice= input("1. Login\n2. Create Account\n")
+    if account_choice=="1" or account_choice== "2":
+        loop=False
+    else:
+        loop=True
+        print("Please enter a valid choice")
+if account_choice == "1":
+    loop = True
+    while loop == True:
+        user_file = open("user_file.txt")
+        username = input("Please enter username: \n")
+        password = input("Please enter password: \n")
+        for line in user_file:
+            values = line.split(", ")
+            if username == values[0] and password == values[1].rstrip():
+                loop = False
+                break 
+        if loop == True:
+            print("Incorrect username or password, please try again.")
+           
+    user_file.close()
+if account_choice == "2":
+    user_file = open("user_file.txt", "a")
+    loop = True
+    while loop:
+        username =input("Please create username (must contain 4-12 characters): \n")
+        if len(username) > 12 or len(username) < 4:
+            print("Error: Username must contain 4-12 characters.")
+            continue
+        else:
+            loop = False
+    loop = True
+    while loop:
+        password =input("Please create password (must contain 6-14 characters): \n")
+        if len(password)> 14 or len(password)< 6:
+            print("Error: Password must contain 6-14 characters.")
+            continue
+        else: 
+            loop = False
+    user_file.write(f"{username}, {password}\n")
+    user_file.close()
+print("Congratulations, you have succesfully made an account. You are now logged in")
+    
+
+print(f"Welcome {username}")
+# Need to incorporate number of students 
+num_of_students = int(input("Number of students: \n"))
+for i in range(num_of_students):
+    student_name = input(f"Name of student {i+1}: \n")
+    student_grade =input(f"Grade of student {i+1}: \n")
+def determine_grade:
+    
